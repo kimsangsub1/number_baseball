@@ -2,7 +2,10 @@
 #include<algorithm>
 #include<string>
 #include<vector>
-
+/*
+    problem source 
+    https://programmers.co.kr/learn/courses/30/lessons/42841
+*/
 using namespace std;
 
 int solution(vector<vector<int>> baseball) {
