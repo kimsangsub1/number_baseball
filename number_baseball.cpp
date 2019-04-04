@@ -126,7 +126,8 @@ vector<Info> totalInformation(int sequence, vector<int> strike_array, vector<int
 vector<int> genSequences(int sequence, vector<int> strike_array, vector<int> ball_array){
     // total information을 가지고 가능한 모든 수열을 생성한다.
     // 여기서 작업 잠시 중지했습니다. 
-
+    vector<Info> total_info = totalInformation(sequence, strike_array, ball_array);
+    
 
 
 }
