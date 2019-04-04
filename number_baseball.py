@@ -77,7 +77,7 @@ def chooseBall(sequence, strike_list, ball_number)
     ball_lists = list(combinations(split_sequence, ball_number))
     return ball_lists
 
- def genSequences(sequence, strike_list, ball_list) 
+def genSequences(sequence, strike_list, ball_list) 
     '''
     ex) 
         sequence = 123, strike_list = [1] , ball_list = [2] 와 같이 주어지면 
@@ -86,7 +86,7 @@ def chooseBall(sequence, strike_list, ball_number)
         즉, strike를 제외한 전체 포지션에서 가능한 순열 중,
         해당 위치에 데이터가 있는 것을 제거하면 된다. 
         ex) if sequence = 123, strike_list = [], ball_list = [1,2]
-            일단 info_ball_list를 만든다. 이 list는 ball_list의 data가 sequence에서 어떤 index에 있는지를 담고 있다.
+            일단 info_ball_list를 만든다. info_ball_list는 ball_list의 data가 sequence에서 어떤 index에 있는지를 담고 있다.
                 ex) info_ball_list = [[1,0], [2,1]]
             3자리 중, ball_number 만큼의 자리를 선택 후, 그 자리에 ball_list에 있는 데이터를 배치한다.
             모든 경우를 possible_sequences = [[1,2,x], [2,1,x], [1,x,2] , [2,x,1] , ... ] 와 같이 나타낸다.
@@ -99,15 +99,15 @@ def chooseBall(sequence, strike_list, ball_number)
     '''
     split_sequence = list(map(int, str(sequence)))
     result_list = ['x','x','x']
+
+    #strike_list 값들은 고정시킨다. 
     for strike_number in strike_list:
         for idx, number in enumerate(split_sequence):
             if strike_number == number:
                 result_list[idx] = number
-    
-    
-        
 
-
+    #here
+    #ball_list를 이용해서 가능한 수열들을 만들어본다.
 
 def solution(baseball):
     for i in range(0, len(baseball)):
@@ -119,12 +119,12 @@ def solution(baseball):
         ball_lists = chooseBall(sequence, strike_list, ball_number)
         for strike_list in strike_lists:
             for ball_list in ball_lists:
+                strike_list = list(strike_list)
+                ball_list = list(ball_list)
                 result_list = genSequences(sequence, strike_list, ball_list)
                 final_result_list = addSequences(result_list, final_result_list)
 
     return len(final_result_list)
-
-
 
 ##test area
 baseball = [[123,1,1], [356,1,0], [327,2,0], [489,0,1]]
