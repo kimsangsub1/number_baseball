@@ -11,9 +11,8 @@
         이를 바탕으로 가능한 ball_lists를 출력한다.
         output : [[2],[3]]
 
-    def genInformation(sequence, strike_list, ball_list) 
-        sequence = 123, strike_list = [1] , ball_list = [2]
-        와 같이 주어지면 
+    def genSequences(sequence, strike_list, ball_list) 
+        ex) sequence = 123, strike_list = [1] , ball_list = [2] 와 같이 주어지면 
          1) strike_list에 있는 데이터는 고정시켜서 result_list에 저장. ex) result_list = [1, x, x]
          2) ball_list에 있는 데이터의 포지션 이외에 배치를 시킨다.
             즉, strike를 제외한 전체 포지션에서 가능한 순열 중,
@@ -24,17 +23,18 @@
                 3자리 중, ball_number 만큼의 자리를 선택 후, 그 자리에 ball_list에 있는 데이터를 배치한다.
                 모든 경우를 possible_sequences = [[1,2,x], [2,1,x], [1,x,2] , [2,x,1] , ... ] 와 같이 나타낸다.
                 이 때, 각 possible_sequences를 info_ball_list와 비교해서 생성된 수열이 ball_list와 겹치는 것이 없는 경우에만 
-                result_list에 값을 추가한다.
+                possible_sequence_forms에 추가한다.
+                그러면 possible_sequence_forms = [[2,1,x], [2,x,1], ... ]와 같이 된다.
+                다음으로 x 위치에 strike_list, ball_list에 없는 숫자들로 수열을 구성하여 result_list에 저장한다.
+                result_list = [[214,215,216,217,218,219], [241,251,261,271,281,291], ...]
+                return result_list
 
-
-                
-                
-                
-
-
-
-
-    
+    def addSequences(result_list, final_result_list)
+        if final_result_list == empty
+            final_result_list = result_list
+        else # 한 번 이상 경우의 수를 구한 경우
+            final_result_list = final_result_list (교집합) result_list
+        return final_result_list
 
 '''
 
